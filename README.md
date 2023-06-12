@@ -1,5 +1,9 @@
 # Progression of Chords
 
+## Site overview
+
+A productivity and wellness website created using the PERN stack and JWT as a vehicle for learning and implementing Material UI. This project was created in March 2023.
+
 ## New user
 
 - Create an account
