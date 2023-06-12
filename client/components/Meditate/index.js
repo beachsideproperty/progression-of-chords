@@ -19,7 +19,7 @@ const Meditate = () => {
           margin: '0 auto',
         }}
       >
-        <Timer initialMinute={5} initialSeconds={0} />
+        <Timer initialMinute={4} initialSeconds={44} />
       </Box>
     </Wrapper>
   );
