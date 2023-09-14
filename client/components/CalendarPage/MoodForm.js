@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Box, Button, Typography } from '@mui/material';
 import { createMood, deleteMood } from '../../store/slices/moods';
 import { moodButtons } from './moodTools';
+import { format, parseISO, isValid } from 'date-fns';
 
 const MoodForm = ({ formattedDate, selectedMood, setSelectedMood }) => {
   const dispatch = useDispatch();
@@ -29,6 +30,10 @@ const MoodForm = ({ formattedDate, selectedMood, setSelectedMood }) => {
       dispatch(deleteMood({ id: moodToDelete.id }));
     }
   };
+
+  const displayDate = isValid(parseISO(formattedDate))
+    ? format(parseISO(formattedDate), 'MMMM d')
+    : 'Invalid Date';
 
   return (
     <Box
@@ -59,7 +64,7 @@ const MoodForm = ({ formattedDate, selectedMood, setSelectedMood }) => {
           marginRight='10px'
           gutterBottom
         >
-          {user.firstName}'s Mood for {formattedDate}:
+          {user.firstName}'s Mood for {displayDate}:
         </Typography>
         {selectedMood && (
           <img
